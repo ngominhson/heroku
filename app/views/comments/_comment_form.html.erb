@@ -1,0 +1,9 @@
+ <div class="span8">
+    <% if @entry.comment.any? %>
+      <h3>Comment (<%= @entry.comments.count %>)</h3>
+      <ol class="comments">
+        <%= render @comments %>
+      </ol>
+      <%= will_paginate @comments %>
+    <% end %>
+  </div>
