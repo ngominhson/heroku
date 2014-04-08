@@ -1,5 +1,5 @@
 class EntriesController < ApplicationController
-  before_action :signed_in_user
+  before_action :signed_in_user only: [:create, :destroy]
   def create
     @entry = current_user.entries.build(entry_params)
     if @entry.save

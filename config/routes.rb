@@ -6,8 +6,8 @@ Sblog::Application.routes.draw do
   end
 
   resources :sessions, only: [:new, :create, :destroy]  
-  resources :entries 
-  resources :comments
+  resources :entries , only: [:create, :destroy]
+  resources :comments, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
   
   root  'static_pages#home'

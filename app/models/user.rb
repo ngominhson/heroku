@@ -15,7 +15,8 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 }
   def feed
-    Micropost.from_users_followed_by(self)
+    Entry.where("user_id = ?", id)
+    Entry.from_users_followed_by(self)  
   end
   def following?(other_user)
     relationships.find_by(followed_id: other_user.id)
